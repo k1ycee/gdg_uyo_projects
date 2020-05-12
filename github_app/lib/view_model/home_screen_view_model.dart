@@ -3,14 +3,22 @@
 import 'package:flutter/material.dart';
 import 'package:github_app/api/github_api_provider.dart';
 import 'package:github_app/model/github_model.dart';
+import 'package:github_app/view_model/location_view_model.dart';
 
 class GetUser extends ChangeNotifier{
   List<HomeScreenViewModel> uzi = List<HomeScreenViewModel>();
+  LocationViewModel loc = LocationViewModel();
 
   Future<void> bringUser()async{
     final gettings = await GitCall().fetchUser();
     this.uzi = gettings.map((reaks) => HomeScreenViewModel(item: reaks))?.toList() ?? [];
     print(this.uzi);
+    notifyListeners();
+  }
+
+  Future<void> fetchLocat(String user)async{
+    final loc = await GitCall().fetchLocation(user);
+    LocationViewModel(locate: loc);
     notifyListeners();
   }
 }
