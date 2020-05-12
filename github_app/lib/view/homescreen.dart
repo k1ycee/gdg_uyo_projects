@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelProvider<GetUser>.withConsumer(
       viewModelBuilder: () => GetUser(),
-      onModelReady: (model) => model.bringUser("flutter"),
+      onModelReady: (model) => model.bringUser(),
       builder: (context,model, _) => Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.grey[850],

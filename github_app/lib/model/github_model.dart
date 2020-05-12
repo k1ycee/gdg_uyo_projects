@@ -85,7 +85,7 @@ class Item {
     final bool hasProjects;
     final bool hasDownloads;
     final bool hasWiki;
-    final bool hasPages;
+    final bool hasPages; 
     final int forksCount;
     final dynamic mirrorUrl;
     final bool archived;
@@ -96,7 +96,7 @@ class Item {
     final int openIssues;
     final int watchers;
     final DefaultBranch defaultBranch;
-    final int score;
+    final double score;
 
     Item({
         this.id,
